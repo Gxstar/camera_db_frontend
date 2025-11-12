@@ -4,7 +4,7 @@
             <v-col class="mt-2" cols="12">
                 <div class="d-flex justify-space-between align-center">
                     <strong>品牌</strong>
-                    <v-btn variant="elevated" color="primary">显示更多</v-btn>
+                    <v-btn variant="elevated" color="primary" @click="showMoreBrands">显示更多</v-btn>
                 </div>
             </v-col>
             <v-divider :thickness="3" class="border-opacity-50" color="info"></v-divider>
@@ -25,7 +25,7 @@
             <v-col class="mt-2" cols="12">
                 <div class="d-flex justify-space-between align-center">
                     <strong>相机</strong>
-                    <v-btn variant="elevated" color="primary">显示更多</v-btn>
+                    <v-btn variant="elevated" color="primary" @click="showMoreCameras">显示更多</v-btn>
                 </div>
             </v-col>
             <v-divider :thickness="3" class="border-opacity-50" color="info"></v-divider>
@@ -45,7 +45,7 @@
             <v-col class="mt-2" cols="12">
                 <div class="d-flex justify-space-between align-center">
                     <strong>镜头</strong>
-                    <v-btn variant="elevated" color="primary">显示更多</v-btn>
+                    <v-btn variant="elevated" color="primary" @click="showMoreLenses">显示更多</v-btn>
                 </div>
             </v-col>
             <v-divider :thickness="3" class="border-opacity-50" color="info"></v-divider>
@@ -138,6 +138,19 @@ const navigateToCamera = (camera) => {
 const navigateToLens = (lens) => {
     // 实际项目中可以导航到对应的镜头详情页
     console.log('导航到镜头:', lens.name)
+}
+
+// 显示更多函数
+const showMoreBrands = () => {
+    router.push({ name: 'brands' })
+}
+
+const showMoreCameras = () => {
+    router.push({ name: 'cameras' })
+}
+
+const showMoreLenses = () => {
+    router.push({ name: 'lenses' })
 }
 </script>
 
