@@ -43,7 +43,7 @@ const drawer = ref(false)
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main style="height: 500px;">
+    <v-main>
         <HomeView />
     </v-main>
   </v-app>
