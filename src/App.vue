@@ -27,8 +27,23 @@ const logout = () => {
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>阿星摄影数据库</v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn v-if="!authStore.isAuthenticated" icon="mdi-login" variant="text" @click="navigateTo('login')"></v-btn>
-      <v-btn v-else icon="mdi-logout" variant="text" @click="logout"></v-btn>
+      
+      <!-- 未登录状态：显示登录按钮 -->
+      <v-btn v-if="!authStore.isAuthenticated" 
+             prepend-icon="mdi-login" 
+             variant="text" 
+             @click="navigateTo('login')">
+        登录
+      </v-btn>
+      
+      <!-- 已登录状态：显示用户信息和注销按钮 -->
+      <div v-else class="d-flex align-center">
+        <v-avatar size="32" class="mr-2">
+          <v-icon icon="mdi-account" size="24"></v-icon>
+        </v-avatar>
+        <span class="mr-3">{{ authStore.user?.username || '用户' }}</span>
+        <v-btn icon="mdi-logout" variant="text" @click="logout" title="注销"></v-btn>
+      </div>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" temporary class="bg-gradient-to-b from-blue-50 to-white">
