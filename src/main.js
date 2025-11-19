@@ -7,6 +7,7 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { zhHans } from 'vuetify/locale'
 
 import App from './App.vue'
 import router from './router'
@@ -17,6 +18,10 @@ const app = createApp(App)
 const vuetify = createVuetify({
   components,
   directives,
+  locale: {
+    locale: 'zhHans',
+    messages: { zhHans }
+  }
 })
 app.use(vuetify)
 app.use(createPinia())

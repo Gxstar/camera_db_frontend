@@ -12,18 +12,36 @@ export const useAuthStore = defineStore('auth', () => {
   // 动作
   const login = async (username, password) => {
     try {
+      console.log('开始登录请求...')
       const response = await authApi.login(username, password)
+      console.log('登录响应:', response)
+      console.log('响应数据:', response.data)
+      
+      // 检查响应结构
+      if (!response.data || !response.data.access_token) {
+        console.error('响应中缺少access_token:', response.data)
+        return { success: false, error: '登录响应格式错误' }
+      }
+      
       token.value = response.data.access_token
       localStorage.setItem('authToken', token.value)
       isAuthenticated.value = true
+      
+      console.log('令牌已保存到localStorage')
       
       // 获取用户信息
       await fetchUser()
       
       return { success: true }
     } catch (error) {
+      console.error('登录错误详情:', error)
+      console.error('错误响应:', error.response)
+      console.error('错误数据:', error.response?.data)
       logout()
-      return { success: false, error: error.response?.data?.detail || '登录失败' }
+      return { 
+        success: false, 
+        error: error.response?.data?.detail || error.message || '登录失败' 
+      }
     }
   }
 

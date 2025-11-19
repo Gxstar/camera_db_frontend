@@ -2,11 +2,11 @@ import apiClient from '../api-client.js'
 
 // 搜索相关API
 export const searchApi = {
-  // 通用搜索
-  search: (query) => apiClient.get(`/api/v1/search/${query}`),
+  // 搜索所有内容
+  search: (query) => apiClient.get(`/search/${query}`),
   
-  // 按名称搜索
-  searchByName: (name) => apiClient.get(`/api/v1/search/name/${name}`),
+  // 根据名称搜索
+  searchByName: (name) => apiClient.get(`/search/name/${name}`),
 }
 
 export default searchApi

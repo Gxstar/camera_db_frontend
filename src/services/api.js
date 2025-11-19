@@ -5,6 +5,7 @@ import lensesApi from './api/lenses.js'
 import authApi from './api/auth.js'
 import searchApi from './api/search.js'
 import usersApi from './api/users.js'
+import mountsApi from './api/mounts.js'
 import apiClient from './api-client.js'
 
 // 整合所有API模块
@@ -15,6 +16,7 @@ export const apiService = {
   auth: authApi,
   search: searchApi,
   users: usersApi,
+  mounts: mountsApi,
   
   // 健康检查
   health: () => apiClient.get('/health'),

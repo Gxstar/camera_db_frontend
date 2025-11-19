@@ -22,12 +22,7 @@
         <!-- 用户管理 -->
         <v-window-item value="users">
           <v-card-text>
-            <v-data-table
-              :headers="userHeaders"
-              :items="users"
-              class="elevation-1"
-              hide-default-footer
-            >
+            <v-data-table :headers="userHeaders" :items="users" class="elevation-1" hide-default-footer>
               <template v-slot:top>
                 <v-toolbar flat>
                   <v-toolbar-title>用户列表</v-toolbar-title>
@@ -44,24 +39,13 @@
                         <v-container>
                           <v-row>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="userForm.username"
-                                label="用户名"
-                                required
-                              ></v-text-field>
+                              <v-text-field v-model="userForm.username" label="用户名" required></v-text-field>
                             </v-col>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="userForm.email"
-                                label="邮箱"
-                                required
-                              ></v-text-field>
+                              <v-text-field v-model="userForm.email" label="邮箱" required></v-text-field>
                             </v-col>
                             <v-col cols="12">
-                              <v-switch
-                                v-model="userForm.is_active"
-                                label="激活状态"
-                              ></v-switch>
+                              <v-switch v-model="userForm.is_active" label="激活状态"></v-switch>
                             </v-col>
                           </v-row>
                         </v-container>
@@ -91,12 +75,7 @@
         <!-- 品牌管理 -->
         <v-window-item value="brands">
           <v-card-text>
-            <v-data-table
-              :headers="brandHeaders"
-              :items="brands"
-              class="elevation-1"
-              hide-default-footer
-            >
+            <v-data-table :headers="brandHeaders" :items="brands" class="elevation-1" hide-default-footer>
               <template v-slot:top>
                 <v-toolbar flat>
                   <v-toolbar-title>品牌列表</v-toolbar-title>
@@ -113,17 +92,10 @@
                         <v-container>
                           <v-row>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="brandForm.name"
-                                label="名称"
-                                required
-                              ></v-text-field>
+                              <v-text-field v-model="brandForm.name" label="名称" required></v-text-field>
                             </v-col>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="brandForm.country"
-                                label="国家"
-                              ></v-text-field>
+                              <v-text-field v-model="brandForm.country" label="国家"></v-text-field>
                             </v-col>
                           </v-row>
                         </v-container>
@@ -148,12 +120,7 @@
         <!-- 相机管理 -->
         <v-window-item value="cameras">
           <v-card-text>
-            <v-data-table
-              :headers="cameraHeaders"
-              :items="cameras"
-              class="elevation-1"
-              hide-default-footer
-            >
+            <v-data-table :headers="cameraHeaders" :items="cameras" class="elevation-1" hide-default-footer>
               <template v-slot:top>
                 <v-toolbar flat>
                   <v-toolbar-title>相机列表</v-toolbar-title>
@@ -170,27 +137,15 @@
                         <v-container>
                           <v-row>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="cameraForm.name"
-                                label="名称"
-                                required
-                              ></v-text-field>
+                              <v-text-field v-model="cameraForm.name" label="名称" required></v-text-field>
                             </v-col>
                             <v-col cols="12">
-                              <v-select
-                                v-model="cameraForm.brand_id"
-                                :items="brandOptions"
-                                label="品牌"
-                                required
-                              ></v-select>
+                              <v-select v-model="cameraForm.brand_id" :items="brandOptions" label="品牌"
+                                required></v-select>
                             </v-col>
                             <v-col cols="12">
-                              <v-select
-                                v-model="cameraForm.mount_id"
-                                :items="mountOptions"
-                                label="卡口"
-                                required
-                              ></v-select>
+                              <v-select v-model="cameraForm.mount_id" :items="mountOptions" label="卡口"
+                                required></v-select>
                             </v-col>
                           </v-row>
                         </v-container>
@@ -215,12 +170,7 @@
         <!-- 镜头管理 -->
         <v-window-item value="lenses">
           <v-card-text>
-            <v-data-table
-              :headers="lensHeaders"
-              :items="lenses"
-              class="elevation-1"
-              hide-default-footer
-            >
+            <v-data-table :headers="lensHeaders" :items="lenses" class="elevation-1" hide-default-footer>
               <template v-slot:top>
                 <v-toolbar flat>
                   <v-toolbar-title>镜头列表</v-toolbar-title>
@@ -237,27 +187,15 @@
                         <v-container>
                           <v-row>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="lensForm.name"
-                                label="名称"
-                                required
-                              ></v-text-field>
+                              <v-text-field v-model="lensForm.name" label="名称" required></v-text-field>
                             </v-col>
                             <v-col cols="12">
-                              <v-select
-                                v-model="lensForm.brand_id"
-                                :items="brandOptions"
-                                label="品牌"
-                                required
-                              ></v-select>
+                              <v-select v-model="lensForm.brand_id" :items="brandOptions" label="品牌"
+                                required></v-select>
                             </v-col>
                             <v-col cols="12">
-                              <v-select
-                                v-model="lensForm.mount_id"
-                                :items="mountOptions"
-                                label="卡口"
-                                required
-                              ></v-select>
+                              <v-select v-model="lensForm.mount_id" :items="mountOptions" label="卡口"
+                                required></v-select>
                             </v-col>
                           </v-row>
                         </v-container>
@@ -282,12 +220,7 @@
         <!-- 卡口管理 -->
         <v-window-item value="mounts">
           <v-card-text>
-            <v-data-table
-              :headers="mountHeaders"
-              :items="mounts"
-              class="elevation-1"
-              hide-default-footer
-            >
+            <v-data-table :headers="mountHeaders" :items="mounts" class="elevation-1" hide-default-footer>
               <template v-slot:top>
                 <v-toolbar flat>
                   <v-toolbar-title>卡口列表</v-toolbar-title>
@@ -304,11 +237,7 @@
                         <v-container>
                           <v-row>
                             <v-col cols="12">
-                              <v-text-field
-                                v-model="mountForm.name"
-                                label="名称"
-                                required
-                              ></v-text-field>
+                              <v-text-field v-model="mountForm.name" label="名称" required></v-text-field>
                             </v-col>
                           </v-row>
                         </v-container>
@@ -429,7 +358,7 @@ const fetchData = async () => {
 // 获取用户列表
 const fetchUsers = async () => {
   try {
-    const response = await userApi.getAll()
+    const response = await userApi.getUsers()
     users.value = response.data
   } catch (error) {
     console.error('获取用户列表失败:', error)
@@ -439,7 +368,7 @@ const fetchUsers = async () => {
 // 获取品牌列表
 const fetchBrands = async () => {
   try {
-    const response = await brandApi.getAll()
+    const response = await brandApi.getBrands()
     brands.value = response.data
     brandOptions.value = response.data.map(brand => ({
       value: brand.id,
@@ -453,7 +382,7 @@ const fetchBrands = async () => {
 // 获取相机列表
 const fetchCameras = async () => {
   try {
-    const response = await cameraApi.getAll()
+    const response = await cameraApi.getCameras()
     cameras.value = response.data
   } catch (error) {
     console.error('获取相机列表失败:', error)
@@ -463,7 +392,7 @@ const fetchCameras = async () => {
 // 获取镜头列表
 const fetchLenses = async () => {
   try {
-    const response = await lensApi.getAll()
+    const response = await lensApi.getLenses()
     lenses.value = response.data
   } catch (error) {
     console.error('获取镜头列表失败:', error)
@@ -473,7 +402,7 @@ const fetchLenses = async () => {
 // 获取卡口列表
 const fetchMounts = async () => {
   try {
-    const response = await mountApi.getAll()
+    const response = await mountApi.getMounts()
     mounts.value = response.data
     mountOptions.value = response.data.map(mount => ({
       value: mount.id,
@@ -499,9 +428,9 @@ const openUserDialog = (user = null) => {
 const saveUser = async () => {
   try {
     if (editingUser.value) {
-      await userApi.update(editingUser.value.id, userForm.value)
+      await userApi.updateUser(editingUser.value.id, userForm.value)
     } else {
-      await userApi.create(userForm.value)
+      await userApi.createUser(userForm.value)
     }
     await fetchUsers()
     userDialog.value = false
@@ -513,7 +442,7 @@ const saveUser = async () => {
 const deleteUser = async (id) => {
   if (confirm('确定要删除这个用户吗？')) {
     try {
-      await userApi.delete(id)
+      await userApi.deleteUser(id)
       await fetchUsers()
     } catch (error) {
       console.error('删除用户失败:', error)
@@ -536,9 +465,9 @@ const openBrandDialog = (brand = null) => {
 const saveBrand = async () => {
   try {
     if (editingBrand.value) {
-      await brandApi.update(editingBrand.value.id, brandForm.value)
+      await brandApi.updateBrand(editingBrand.value.id, brandForm.value)
     } else {
-      await brandApi.create(brandForm.value)
+      await brandApi.createBrand(brandForm.value)
     }
     await fetchBrands()
     brandDialog.value = false
@@ -550,7 +479,7 @@ const saveBrand = async () => {
 const deleteBrand = async (id) => {
   if (confirm('确定要删除这个品牌吗？')) {
     try {
-      await brandApi.delete(id)
+      await brandApi.deleteBrand(id)
       await fetchBrands()
     } catch (error) {
       console.error('删除品牌失败:', error)
@@ -573,9 +502,9 @@ const openCameraDialog = (camera = null) => {
 const saveCamera = async () => {
   try {
     if (editingCamera.value) {
-      await cameraApi.update(editingCamera.value.id, cameraForm.value)
+      await cameraApi.updateCamera(editingCamera.value.id, cameraForm.value)
     } else {
-      await cameraApi.create(cameraForm.value)
+      await cameraApi.createCamera(cameraForm.value)
     }
     await fetchCameras()
     cameraDialog.value = false
@@ -587,7 +516,7 @@ const saveCamera = async () => {
 const deleteCamera = async (id) => {
   if (confirm('确定要删除这个相机吗？')) {
     try {
-      await cameraApi.delete(id)
+      await cameraApi.deleteCamera(id)
       await fetchCameras()
     } catch (error) {
       console.error('删除相机失败:', error)
@@ -610,9 +539,9 @@ const openLensDialog = (lens = null) => {
 const saveLens = async () => {
   try {
     if (editingLens.value) {
-      await lensApi.update(editingLens.value.id, lensForm.value)
+      await lensApi.updateLens(editingLens.value.id, lensForm.value)
     } else {
-      await lensApi.create(lensForm.value)
+      await lensApi.createLens(lensForm.value)
     }
     await fetchLenses()
     lensDialog.value = false
@@ -624,7 +553,7 @@ const saveLens = async () => {
 const deleteLens = async (id) => {
   if (confirm('确定要删除这个镜头吗？')) {
     try {
-      await lensApi.delete(id)
+      await lensApi.deleteLens(id)
       await fetchLenses()
     } catch (error) {
       console.error('删除镜头失败:', error)

@@ -27,7 +27,7 @@ export const apiService = {
   users: usersApi,
   
   // 健康检查
-  health: () => apiClient.get('/api/v1/health'),
+  health: () => apiClient.get('/health'),
 }
 
 export default apiService

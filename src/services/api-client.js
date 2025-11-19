@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // 创建axios实例
 const apiClient = axios.create({
-  baseURL: 'http://127.0.0.1:8000', // 根据实际后端API地址修改
+  baseURL: 'http://127.0.0.1:8000/api/v1', // 根据实际后端API地址修改
   timeout: 10000, // 10秒超时
   headers: {
     'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ apiClient.interceptors.response.use(
   (response) => {
     // 对响应数据做点什么
     console.log(`请求成功: ${response.status} ${response.config.url}`)
-    return response.data
+    return response  // 返回完整的响应对象，而不是response.data
   },
   (error) => {
     // 对响应错误做点什么
