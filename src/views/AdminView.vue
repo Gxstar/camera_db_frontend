@@ -4,8 +4,6 @@
       <!-- 标题栏 -->
       <v-card-title class="d-flex align-center">
         <span class="text-h5">管理系统</span>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" @click="logout">注销</v-btn>
       </v-card-title>
 
       <!-- 导航标签页 -->
