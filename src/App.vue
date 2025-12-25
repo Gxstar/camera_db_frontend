@@ -1,11 +1,15 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
 const drawer = ref(false)
 const router = useRouter()
+const route = useRoute()
 const authStore = useAuthStore()
+
+// 判断是否不在管理页面
+const isNotAdmin = computed(() => route.name !== 'admin')
 
 // 导航到指定路由
 const navigateTo = (routeName) => {
@@ -24,8 +28,8 @@ const logout = () => {
 <template>
   <v-app>
     <v-app-bar color="primary">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-app-bar-title>阿星摄影数据库</v-app-bar-title>
+      <v-app-bar-nav-icon v-if="isNotAdmin" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-title style="cursor: pointer" @click="navigateTo('home')">阿星摄影数据库</v-app-bar-title>
       <v-spacer></v-spacer>
       
       <!-- 未登录状态：显示登录按钮 -->
@@ -46,7 +50,7 @@ const logout = () => {
       </div>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" temporary class="bg-gradient-to-b from-blue-50 to-white">
+    <v-navigation-drawer v-if="isNotAdmin" v-model="drawer" temporary class="bg-gradient-to-b from-blue-50 to-white">
       <v-list class="py-2">
         <v-list-item link title="首页" prepend-icon="mdi-home" class="hover:bg-blue-100 transition-colors duration-200" @click="navigateTo('home')">
           <template v-slot:prepend>
