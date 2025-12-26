@@ -5,6 +5,7 @@ import CamerasView from '../views/client/CamerasView.vue'
 import LensesView from '../views/client/LensesView.vue'
 import AdminView from '../views/admin/AdminView.vue'
 import LoginView from '../views/auth/LoginView.vue'
+import UserCenterView from '../views/user/UserCenterView.vue'
 
 // 路由守卫
 const requireAuth = (to, from, next) => {
@@ -43,6 +44,12 @@ const router = createRouter({
       path: '/lenses',
       name: 'lenses',
       component: LensesView,
+    },
+    {
+      path: '/user/:id',
+      name: 'user-center',
+      component: UserCenterView,
+      beforeEnter: requireAuth,
     },
     {
       path: '/admin',

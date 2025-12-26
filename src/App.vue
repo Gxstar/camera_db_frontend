@@ -13,7 +13,12 @@ const isNotAdmin = computed(() => route.name !== 'admin')
 
 // 导航到指定路由
 const navigateTo = (routeName) => {
-  router.push({ name: routeName })
+  if (routeName === 'user-center') {
+    const userId = authStore.user?.id || 'me' // 如果还没加载出 ID，先用 me 占位或者根据业务处理
+    router.push({ name: routeName, params: { id: userId } })
+  } else {
+    router.push({ name: routeName })
+  }
   drawer.value = false
 }
 
@@ -80,6 +85,13 @@ const logout = () => {
         </v-list-item>
 
         <v-divider class="my-2"></v-divider>
+
+        <v-list-item v-if="authStore.isAuthenticated" link title="个人中心" prepend-icon="mdi-account-circle"
+          class="hover:bg-blue-50 transition-colors duration-200" @click="navigateTo('user-center')">
+          <template v-slot:prepend>
+            <v-icon icon="mdi-account-circle" class="text-blue-600 mr-3" />
+          </template>
+        </v-list-item>
 
         <v-list-item v-if="authStore.isAuthenticated" link title="管理后台" prepend-icon="mdi-cog"
           class="hover:bg-red-100 transition-colors duration-200" @click="navigateTo('admin')">
