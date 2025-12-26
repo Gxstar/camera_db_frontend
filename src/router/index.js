@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import BrandsView from '../views/BrandsView.vue'
-import CamerasView from '../views/CamerasView.vue'
-import LensesView from '../views/LensesView.vue'
-import AdminView from '../views/AdminView.vue'
-import LoginView from '../views/LoginView.vue'
+import HomeView from '../views/client/HomeView.vue'
+import BrandsView from '../views/client/BrandsView.vue'
+import CamerasView from '../views/client/CamerasView.vue'
+import LensesView from '../views/client/LensesView.vue'
+import AdminView from '../views/admin/AdminView.vue'
+import LoginView from '../views/auth/LoginView.vue'
 
 // 路由守卫
 const requireAuth = (to, from, next) => {
